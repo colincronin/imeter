@@ -1,0 +1,108 @@
+Timestamp (Date)
+    int (9)
+Tick
+    int (3)
+Topic
+    varchar (40)
+
+------------------------------
+
+Creation of the MySQL database:
+CREATE DATABASE `imeterdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+
+Creation of the MySQL table:
+CREATE TABLE IF NOT EXISTS `imeter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` int(10) DEFAULT NULL,
+  `tick` int(3) DEFAULT NULL,
+  `topic` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)
+
+------------------------------
+
+Php connection file:
+<?php
+$host="localhost";
+$dbusername="XXX";
+$dbpassword="XXX";
+$dbname="imeterdb";
+$tablename="imeter";
+$tablefields=array("id INT NOT NULL PRIMARY KEY AUTO_INCREMENT", "date INT(10)", "tick INT(3)", "topic VARCHAR(40)");
+?>
+
+------------------------------
+
+Php database creation file:
+<?php
+# Require the Connection Credentials
+require 'con.php';
+# Connect to MySQL
+$pdo = new PDO("mysql:host=$host", $dbusername, $dbpassword);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+# Create the Database if it doesn't already exist
+$dbname = "`".str_replace("`","``",$dbname)."`";
+$pdo->query("CREATE DATABASE IF NOT EXISTS $dbname");
+$pdo->query("use $dbname");
+echo "Using Database: <b>$dbname</b><br>";
+
+# Close the Database Connection
+$pdo = NULL;
+?>
+
+------------------------------
+
+Php table creation file:
+<?php
+# Require the Connection Credentials
+require 'con.php';
+
+# Open the Database Connection
+try {
+    $db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$dbusername, $dbpassword);
+}
+catch(PDOException $e) {
+    echo $e->getMessage();
+}
+
+# Prepare and Execute SQL Statements
+$stmt = 'CREATE TABLE IF NOT EXISTS '.$tablename.'('.implode(',',$tablefields).')';
+try {
+    $db->exec($stmt);
+    echo "Table <b>".$tablename."</b> created<br>";
+}
+catch(PDOException $e) {
+    echo $e->getMessage();//Remove or change message in production code
+}
+$numrows = $db->query('SELECT count(*) from '.$tablename)->fetchColumn();
+
+# Display the Results
+echo "Rows in ".$tablename.": ";
+echo $numrows;
+echo "<br>";
+
+# Close the Database Connection
+$db = NULL;
+?>
+
+------------------------------
+
+Php startup file:
+<?php
+# Require the Connection Credentials and Table Creation
+require 'con.php';
+require 'functions.php';
+require 'createdb.php';
+require 'createtable.php';
+?>
+
+------------------------------
+
+Php function file:
+<?php
+# Autoload Required Objects
+function __autoload($class_name) {
+    require $class_name.'.class.php';
+}
+?>
