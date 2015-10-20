@@ -106,3 +106,18 @@ function __autoload($class_name) {
     require $class_name.'.class.php';
 }
 ?>
+
+------------------------------
+
+Object Oriented Concept:
+Each day is an object.
+Each conversation is an object.
+Days can contain mutiple conversations.
+Day object descriptions include a formatted date and the number of conversations that took place.
+Conversations can contain multiple tick values ranging from 0 onward.
+The newConversation() function initiallizes the conversation object.
+Conversations are labeled by topic.
+This function prompts a topic name and checks against other conversations within the active day.
+In the absence of a topic, a conversation is labeled by its time of initiation by default.
+The topic and tick count of any active conversation is displayed as an active label and counter.
+Ticks are added by a tickAdd() function.
