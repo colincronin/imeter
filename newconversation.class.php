@@ -1,7 +1,4 @@
 <?php
-# Require the Connection Credentials
-require 'con.php';
-
 # Construct the bill addition class
 class newconversation {
     public $date;
@@ -19,7 +16,7 @@ class newconversation {
 
 
     function describe() {
-        echo date('F j, Y',$this->date).' ('.$this->tick.') - '.$this->topic;
+        echo date('F j, Y',$this->date).' - ('.$this->tick.') - '.$this->topic;
     }
 
 

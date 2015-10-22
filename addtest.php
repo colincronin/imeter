@@ -11,5 +11,4 @@ $newconvo = new newconversation($d,$t,$topic);
 
 # Add the new bill to the database
 $newconvo->addConversation();
-
 ?>
