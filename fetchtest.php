@@ -7,7 +7,7 @@ require 'functions.php';
 $convo1 = new conversation();
 $convo1->fetchAllConversations();
 
-echo '<br><br>';
+echo '<br><br><h2>Today:</h2><h4>'.date('F j, Y',time()).'</h4>';
 
 $convo2 = new conversation();
 $today  = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
@@ -17,7 +17,7 @@ $dateend = $tomorrow;
 $ids = $convo2->fetchDates($datebegin,$dateend);
 print_r($ids);
 
-echo '<br><br>';
+echo '<br><br><h2>Last 7 days:</h2>';
 
 $convo3 = new conversation();
 $lastweek  = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
