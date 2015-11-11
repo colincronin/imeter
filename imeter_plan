@@ -121,3 +121,20 @@ This function prompts a topic name and checks against other conversations within
 In the absence of a topic, a conversation is labeled by its time of initiation by default.
 The topic and tick count of any active conversation is displayed as an active label and counter.
 Ticks are added by a tickAdd() function.
+
+------------------------------
+
+Index Page:
+Splash Screen
+    Logo BG
+    Topic Input Box
+        Last Conversation Topic Preloaded (If Same Day)
+    Start Button
+    Records Button
+
+Conversation Page:
+    Topic Header or Date (If No Topic)
+        Date Subheader
+    Tick Count
+    Add Tick Button
+    End Conversation Button
