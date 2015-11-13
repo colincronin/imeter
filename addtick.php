@@ -10,7 +10,8 @@ $testtopic = 'test';
 $convo1->addTick($testday, $testtopic);
 
 #Change this code in production:
-$convo1->fetchAllConversations();
+#$convo1->fetchAllConversations();
+$convo1->pullTick($testday, $testtopic);
 echo '
 <br>
 <img src="imetericon.png" onclick="newTick()">
