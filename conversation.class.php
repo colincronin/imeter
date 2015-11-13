@@ -150,7 +150,7 @@ class conversation {
             if ($currentTick==NULL) {
                 $currentTick=0;
             }
-            echo $currentTick;
+            echo '<div class="tickdiv" onclick="newTick()"><span class="overlay allcentered">'.$currentTick.'</span></div>';
         }
         catch(PDOException $er) {
             echo '<b>Error: '.$er->getMessage(). '<br></b>';

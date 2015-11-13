@@ -27,7 +27,7 @@ require 'con.php';
 require 'functions.php';
 ?>
 <div id="tickbutton">
-<img src="imetericon.png" onclick="newTick()">
+<img src="imetericon.png" class="icon allcentered" onclick="newTick()">
 </div>
 </body>
 </html>

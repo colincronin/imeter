@@ -14,6 +14,6 @@ $convo1->addTick($testday, $testtopic);
 $convo1->pullTick($testday, $testtopic);
 echo '
 <br>
-<img src="imetericon.png" onclick="newTick()">
+<img src="imetericon.png" class="icon allcentered" onclick="newTick()">
 ';
 ?>
