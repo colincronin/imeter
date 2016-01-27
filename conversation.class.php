@@ -141,10 +141,11 @@ class conversation {
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             # Fetch the requested id
-            $stmt = $db->prepare('SELECT id, tick FROM '.$tablename.' WHERE date BETWEEN '.$db->quote($d).' AND '.$db->quote($e).' AND topic LIKE '.$db->quote($topic));
+            $stmt = $db->prepare('SELECT id, tick, topic FROM '.$tablename.' WHERE date BETWEEN '.$db->quote($d).' AND '.$db->quote($e).' AND topic LIKE '.$db->quote($topic));
             $stmt->execute();
             $fetchDate = $stmt->fetch();
             $currentTick = $fetchDate[tick];
+            $currentTopic = $fetchDate[topic];
             # Echo the tick for debugging purposes
             # Remove upon production deployment
             if ($currentTick==NULL) {

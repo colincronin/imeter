@@ -3,8 +3,8 @@
 <head>
 <title>iMeter</title>
 <meta name="description" content="iMeter - Application for Tracking Self-Mentions">
-<meta id="viewport" name="viewport" content="width=device-width; initial-scale=0.5; maximum-scale=2.0;" />
-<link rel="stylesheet" type="text/css" href="style.css" />
+<meta id="viewport" name="viewport" content="width=device-width; initial-scale=0.5; maximum-scale=2.0;">
+<link rel="stylesheet" type="text/css" href="style.css">
 <!-- AJAX -->
 <script>
 function newTick() {
@@ -26,6 +26,14 @@ function newTick() {
 require 'con.php';
 require 'functions.php';
 ?>
+<div id="topicbox">
+<?php
+/*
+This is a piece of code that would grab the $currentTopic variable from the post from the production index page
+echo '<div class="topicdiv" onclick="changeTopic()"><span class="topoverlay">'.$currentTopic.'</span></div>';
+*/
+?>
+</div>
 <div id="tickbutton">
 <img src="imetericon.png" class="icon allcentered" onclick="newTick()">
 </div>
